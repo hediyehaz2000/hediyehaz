@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+class Parent {
+    String familyName;
+    String address;
+    int age;
+
+    public Parent() {
+        // Constructor بدون آرگومان
+    }
+
+    public Parent(String f, String a, int g) {
+        familyName = f;
+        address = a;
+        age = g;
+    }
+
+    public void setFamilyName(String f) {
+        familyName = f;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public String toString() {
+        return "Family: " + familyName + ", Address: " + address + ", Age: " + age;
+    }
+}
+
+class Children extends Parent {
+    private String name;
+
+    public Children() {
+        super();
+    }
+
+    public Children(String childName, String familyName, String address, int age) {
+        super(familyName, address, age);
+        name = childName;
+    }
+
+    public void setName(String n) {
+        name = n;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Child Name: " + name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Children[] c = new Children[3]; // برای تست، ۳ بچه وارد می‌کنیم
+
+        for (int i = 0; i < c.length; i++) {
+            System.out.println("Enter Child Name, Family Name, Address, Age:");
+            String childName = s.next();
+            String familyName = s.next();
+            String address = s.next();
+            int age = s.nextInt();
+            c[i] = new Children(childName, familyName, address, age);
+        }
+
+        System.out.println("\nList of Children:");
+        for (int i = 0; i < c.length; i++) {
+            System.out.println(c[i]);
+        }
+
+        s.close();
+    }
+}
