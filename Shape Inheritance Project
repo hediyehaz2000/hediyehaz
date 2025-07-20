@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+class Shape {
+    String name;
+    int mohit;    // محیط
+    int masahat;  // مساحت
+
+    public Shape() {
+    }
+
+    public Shape(String name, int mohit, int masahat) {
+        this.name = name;
+        this.mohit = mohit;
+        this.masahat = masahat;
+    }
+
+    public void printInfo() {
+        System.out.println("Shape: " + name + ", Mohit: " + mohit + ", Masahat: " + masahat);
+    }
+}
+
+class Morabba extends Shape {
+    public Morabba() {
+        super();
+    }
+
+    public Morabba(String name, int mohit, int masahat) {
+        super(name, mohit, masahat);
+    }
+}
+
+class Mosalas extends Shape {
+    public Mosalas() {
+        super();
+    }
+
+    public Mosalas(String name, int mohit, int masahat) {
+        super(name, mohit, masahat);
+    }
+}
+
+class Dayere extends Shape {
+    public Dayere() {
+        super();
+    }
+
+    public Dayere(String name, int mohit, int masahat) {
+        super(name, mohit, masahat);
+    }
+}
+
+class Mostatil extends Shape {
+    public Mostatil() {
+        super();
+    }
+
+    public Mostatil(String name, int mohit, int masahat) {
+        super(name, mohit, masahat);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Shape[] shapes = new Shape[6];
+
+        for (int i = 0; i < shapes.length; i++) {
+            System.out.print("Enter shape name, mohit (int), masahat (int): ");
+            String name = s.next();
+            int mohit = s.nextInt();
+            int masahat = s.nextInt();
+
+            // برای نمونه، همه با کلاس پایه ساخته میشن
+            shapes[i] = new Shape(name, mohit, masahat);
+        }
+
+        System.out.println("\nShapes entered:");
+        for (Shape shape : shapes) {
+            shape.printInfo();
+        }
+
+        s.close();
+    }
+}
+
